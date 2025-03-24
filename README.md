@@ -44,7 +44,7 @@ In the **Hierarchy**:
   - In the **Inspector**, make sure the `"Anchor_name"` parameter exactly matches the tag names used for the scanned objects (from the **Headset Setup** step).
   - Make sure the parameters **"obj1"**, **"obj2"**, and **"obj"** correspond to the three required objects (e.g., `"sweetener"`, `"cup"`, and `"coffee maker"`).
 
-<img width="306" alt="Image" src="https://github.com/user-attachments/assets/74e30cca-1fe0-45d8-a486-aaa728945ab2" />
+  <img width="500" alt="Image" src="https://github.com/user-attachments/assets/74e30cca-1fe0-45d8-a486-aaa728945ab2" />
 
 
 ## Running the Program
