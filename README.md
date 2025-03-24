@@ -1,50 +1,75 @@
-# Coffe assistant - Unity - ROS - GPT
+# Coffee Assistant - Unity - ROS - GPT
 
-This repository is a part of the ICA project that aim's do solve the wozniak coffee test. In this section It was made a setup in Aumented Reality using an ai chat-bot to assist a persong step-by-step to serve a cup of coffe.
+This repository is part of the ICA project, which aims to solve the **Wozniak Coffee Test**.  
+In this section, an **Augmented Reality (AR)** setup was created using an **AI chatbot** to guide a person step-by-step in serving a cup of coffee.
 
-Sugestão usar 2 máquinas, com uso de linux para rodar os comandos ROS e uma máquina windows para rodar o Unity. Isso pode ser feito em dispositivos diferentes, ou em uma mesma máquina com a instalação de uma máquina virtual. 
+We recommend using **two machines**, with **Linux** to run ROS commands and **Windows** to run Unity.  
+This can be done using two different physical devices or a single machine with a **virtual machine**.
 
-# System Dependencies
+> _<insert here a general demonstration video>_
 
-Esse repositório é uma vertente do projeto I2CA. Para executar esse programa, primeiramente siga todas as instruções do repositório wozniak_coffe_test, pois esse programa faz uso do Coffe Assistant disponibilizado la.
+---
 
-# Setup do Óculos
+## System Dependencies
 
-Você deve ter também o aplicativo Meta Quest Link para desktop para conectar o óculos na sua máquina, e seguir o passo a passo sugerido no aplicativo para identificar o seu dispositivo da Meta. 
+This repository is a branch of the **I2CA** project.  
+To run this program, make sure to follow all the setup instructions from the **`wozniak_coffee_test`** repository, as this project depends on the **Coffee Assistant** available there.
 
-O óculos deve estar conectado via cabo para garantir o funcionamento perfeito via Unity.
+---
 
-Escanear o ambiente, e garantir que os 3 objetos a serem requisitados estejam presentes no ambiente e sejam escaneados e com a mesma tag, que deve ser a mesma especificada. Sugestão: coloque a tag "OTHER" pois o scan automático do óculos dificilmente coloca algum objeto com essa tag.  
+## Headset Setup
 
-# Setup Unity 
+You will also need to install the **Meta Quest Link** desktop application to connect your headset to your machine.  
+Follow the steps provided in the app to detect your **Meta** device.
 
-Instalar o unity hub e garantir que tenha uma licença de uso.
+- The headset should be connected via **cable** to ensure full functionality with Unity.
+- Scan your environment and ensure the **three required objects** are detected and tagged properly.
+- We recommend assigning the tag **"OTHER"**, since the headset’s auto-scanner rarely uses this tag by default.
 
-Instalar a versão 2022.3.32f1 do unity.
+> _<insert here a screenshot>_
 
-Clonar o projeto e adicionar ele aos seus projetos via unityhub. 
+---
 
-> Verificações dentro do projeto: 
+## Unity Setup
 
-Na hierarquia: 
->Selecione o componente ros holder
->No inspetor, veja os parâmetros do componente e garanta que o IP seja o mesmo da máquina que estará se comunicando com o unity.
+- Install **Unity Hub** and make sure you have an active license.
+- Install **Unity version 2022.3.32f1**.
+- Clone this repository and add the folder `unity_project` to your Unity Hub project list.
 
->Selecione o componente scripts holder na hierarquia
->No inspetor, garanta que o parâmetro "Anchor_name" seja exatamente o mesmo nome das tags que você colocou nos objetos escaneados no passo a passo "Setup do óculos"
->Garanta que os parâmetros "obj1", "obj2" e "obj" sejam os objetos a serem requisitados na interação (para esse caso, "sweetener", "cup" e "coffe maker"). 
+This Unity project uses the **ROS# package**, which acts as an interface between **Unity and ROS (via rosbridge)**.
+
+### Project Configuration Checklist:
+
+In the **Hierarchy**:
+- Select the `ros_holder` component.
+  - In the **Inspector**, make sure the **IP address** matches the machine that will be communicating with Unity.
+- Select the `scripts_holder` component.
+  - In the **Inspector**, make sure the `"Anchor_name"` parameter exactly matches the tag names used for the scanned objects (from the **Headset Setup** step).
+  - Make sure the parameters **"obj1"**, **"obj2"**, and **"obj"** correspond to the three required objects (e.g., `"sweetener"`, `"cup"`, and `"coffee maker"`).
+
+> _<insert here a screenshot>_
+
+---
+
+## Running the Program
+
+1. First, run the Unity scene by clicking the **Play** button.
+2. Then, to establish communication between **Unity (Machine 1)** and **ROS (Machine 2)**, execute the following command on the ROS side:
+
+'''
+roslaunch rosbridge_server rosbridge_websocket.launch
+'''
 
 
-# Para executar o programa 
+3. To start the Coffee Assistant, run:
 
-A conexão do Unity 
+'''
+roslaunch servidor pick_object.launch roslaunch terminal chat.launch
+'''
 
->launch rosbridge_server websocket_launch
 
->dar play no unity para estabelecar 
+At this point, the program is running. To start interacting with the AI assistant, simply send the first message.  
+When you are ready to begin the task, make a **thumbs-up (👍)** gesture with your hand to signal the system.
 
->launch servidor pick object 
+---
 
->launch terminal chat
-
->quando estiver pronto para começar, sinalizar com o polegar
