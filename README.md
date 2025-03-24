@@ -8,14 +8,12 @@ This can be done using two different physical devices or a single machine with a
 
 > _<insert here a general demonstration video>_
 
----
 
 ## System Dependencies
 
 This repository is a branch of the **I2CA** project.  
 To run this program, make sure to follow all the setup instructions from the **`wozniak_coffee_test`** repository, as this project depends on the **Coffee Assistant** available there.
 
----
 
 ## Headset Setup
 
@@ -28,7 +26,6 @@ Follow the steps provided in the app to detect your **Meta** device.
 
 > _<insert here a screenshot>_
 
----
 
 ## Unity Setup
 
@@ -49,23 +46,22 @@ In the **Hierarchy**:
 
 > _<insert here a screenshot>_
 
----
 
 ## Running the Program
 
 1. First, run the Unity scene by clicking the **Play** button.
 2. Then, to establish communication between **Unity (Machine 1)** and **ROS (Machine 2)**, execute the following command on the ROS side:
 
-'''
+```
 roslaunch rosbridge_server rosbridge_websocket.launch
-'''
+```
 
 
 3. To start the Coffee Assistant, run:
 
-'''
-roslaunch servidor pick_object.launch roslaunch terminal chat.launch
-'''
+```
+ros2 launch robot_control_language realsense.launch.py
+```
 
 
 At this point, the program is running. To start interacting with the AI assistant, simply send the first message.  
