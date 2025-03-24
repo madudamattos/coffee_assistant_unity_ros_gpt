@@ -6,7 +6,8 @@ In this section, an **Augmented Reality (AR)** setup was created using an **AI c
 We recommend using **two machines**, with **Linux** to run ROS commands and **Windows** to run Unity.  
 This can be done using two different physical devices or a single machine with a **virtual machine**.
 
-> _<insert here a general demonstration video>_
+
+  ![Image](https://github.com/user-attachments/assets/a7b493c5-180e-4b4c-9216-ec816017c6b0)
 
 
 ## System Dependencies
@@ -23,8 +24,6 @@ Follow the steps provided in the app to detect your **Meta** device.
 - The headset should be connected via **cable** to ensure full functionality with Unity.
 - Scan your environment and ensure the **three required objects** are detected and tagged properly.
 - We recommend assigning the tag **"OTHER"**, since the headset’s auto-scanner rarely uses this tag by default.
-
-> _<insert here a screenshot>_
 
 
 ## Unity Setup
@@ -44,6 +43,7 @@ In the **Hierarchy**:
   - In the **Inspector**, make sure the `"Anchor_name"` parameter exactly matches the tag names used for the scanned objects (from the **Headset Setup** step).
   - Make sure the parameters **"obj1"**, **"obj2"**, and **"obj"** correspond to the three required objects (e.g., `"sweetener"`, `"cup"`, and `"coffee maker"`).
 
+
   <img width="500" alt="Image" src="https://github.com/user-attachments/assets/74e30cca-1fe0-45d8-a486-aaa728945ab2" />
 
 
@@ -61,6 +61,9 @@ roslaunch rosbridge_server rosbridge_websocket.launch
 
 ```
 ros2 launch robot_control_language realsense.launch.py
+```
+```
+ros2 run wozniak_services pick_object_server
 ```
 
 
