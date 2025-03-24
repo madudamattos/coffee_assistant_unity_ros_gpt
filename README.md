@@ -7,8 +7,7 @@ We recommend using **two machines**, with **Linux** to run ROS commands and **Wi
 This can be done using two different physical devices or a single machine with a **virtual machine**.
 
 
-  ![Image](https://github.com/user-attachments/assets/a7b493c5-180e-4b4c-9216-ec816017c6b0)
-
+  <img width="500" alt="Image" src="https://github.com/user-attachments/assets/a7b493c5-180e-4b4c-9216-ec816017c6b0" />
 
 ## System Dependencies
 
